@@ -1,8 +1,21 @@
 const Telegraf = require("telegraf");
 const CONFIG = require("./config.json");
 const MongoClient = require("mongodb").MongoClient;
+const http = require("http");
 
 const bot = new Telegraf(CONFIG.api_token);
+
+const requestHandler = (request, response) => {
+	console.log(request.url);
+	response.end("Hello Node.js Server!");
+};
+const server = http.createServer(requestHandler);
+server.listen(process.env.PORT, err => {
+	if (err) {
+		return console.log("something bad happened", err);
+	}
+	console.log(`server is listening on ${process.env.PORT}`);
+});
 
 MongoClient.connect(
 	process.env.MONGODB_URI,
