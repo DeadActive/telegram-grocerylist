@@ -15,7 +15,7 @@ MongoClient.connect(
 			console.log(err);
 			return;
 		}
-
+		console.log("connected");
 		const db = client.db("datebase");
 		const collection = db.collection("lists");
 
