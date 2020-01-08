@@ -32,6 +32,12 @@ MongoClient.connect(
 		const db = client.db();
 		const collection = db.collection("lists");
 
+		bot.hears(/!\n.+/, ctx => {
+			const items = ctx.message.split("\n");
+			console.log(JSON.stringify(items));
+			ctx.reply("Added");
+		});
+
 		bot.command("test", ctx => {
 			console.log(JSON.stringify(ctx.from));
 			collection.insertOne({ user_id: ctx.from.id }, (err, res) => {
