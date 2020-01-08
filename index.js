@@ -32,9 +32,9 @@ MongoClient.connect(
 		const db = client.db();
 		const collection = db.collection("lists");
 
-		bot.hears(/!.+/, ctx => {
-			const message = ctx.message;
-			console.log(message);
+		bot.hears(/!.*/, ctx => {
+			const items = ctx.message.text.split("\n");
+			console.log(items);
 			ctx.reply("Added");
 		});
 
