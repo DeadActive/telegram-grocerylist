@@ -34,16 +34,18 @@ MongoClient.connect(
 
 		bot.hears(/!.*/, ctx => {
 			const items = ctx.message.text.split("\n");
+			const title = items[0].slice(1);
 			items.shift();
 			console.log("Adding " + items);
+
 			collection.insertOne(
-				{ user_id: ctx.from.id, items: items },
+				{ user_id: ctx.from.id, items: items, title: title },
 				(err, res) => {
 					if (err) {
 						ctx.reply("Error");
 						return;
 					}
-					ctx.reply("Added " + items.count + " items");
+					ctx.reply("Added " + items.length + " items");
 				}
 			);
 		});
