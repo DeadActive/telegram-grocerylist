@@ -1,0 +1,24 @@
+{
+	"name": "grocery",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "test",
+		"start": "node index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/DeadActive/telegram-grocerylist.git"
+	},
+	"author": "Dead Active",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/DeadActive/telegram-grocerylist/issues"
+	},
+	"homepage": "https://github.com/DeadActive/telegram-grocerylist#readme",
+	"dependencies": {
+		"https-proxy-agent": "^4.0.0",
+		"telegraf": "^3.35.0"
+	}
+}
