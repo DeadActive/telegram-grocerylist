@@ -19,6 +19,7 @@
 	"homepage": "https://github.com/DeadActive/telegram-grocerylist#readme",
 	"dependencies": {
 		"https-proxy-agent": "^4.0.0",
+		"mongodb": "^3.4.1",
 		"telegraf": "^3.35.0"
 	}
 }
