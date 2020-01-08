@@ -29,12 +29,12 @@ MongoClient.connect(
 			return;
 		}
 		console.log("connected");
-		const db = client.db("datebase");
+		const db = client.db();
 		const collection = db.collection("lists");
 
 		bot.command("test", ctx => {
 			console.log(JSON.stringify(ctx.from));
-			collection.insertOne({ user_id: ctx.from.userid }, (err, res) => {
+			collection.insertOne({ user_id: ctx.from.id }, (err, res) => {
 				if (err) {
 					ctx.reply("Error");
 					return;
@@ -44,7 +44,7 @@ MongoClient.connect(
 		});
 
 		bot.command("get", ctx => {
-			collection.find({ user_id: ctx.from.userid }).toArray((err, items) => {
+			collection.find({ user_id: ctx.from.id }).toArray((err, items) => {
 				if (err) {
 					ctx.reply("Not found");
 					return;
